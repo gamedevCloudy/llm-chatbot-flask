@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
+    />
+
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Chat with a Scholar</h1>
+      <div id="chatarea"></div>
+      <div id="textbox" style="position: fixed; bottom:0; width: 80%;">
+        <form
+        id="text"
+        hx-post="/chat"
+        hx-trigger="submit delay:300ms"
+        hx-target="#chatarea"
+        hx-swap="afterend"
+        role="group"
+      >
+
+            <input type="text" placeholder="enter your prompt"></input>
+            <button type="submit">Login</button>
+            <!-- <button type="submit"><img src="https://cdn-icons-png.flaticon.com/24/736/736161.png" alt="Send" ></button> -->
+        </form>
+    </div>
+    </main>
+  </body>
+</html>
