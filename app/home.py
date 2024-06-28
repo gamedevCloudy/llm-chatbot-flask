@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 
 
@@ -10,4 +10,5 @@ def home_base():
 
 @home.post('/chat')
 def chat():
-    return "<article>this is the response from server</article>"
+    query = request.form.get('query')
+    return f"<article>{query}</article>"
