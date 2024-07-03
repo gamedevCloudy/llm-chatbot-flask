@@ -1,8 +1,8 @@
-<header>
-  <h4>You:</h4>
-  <p>{{query}}</p>
-</header>
 <article>
+  <header>
+    <h4>You:</h4>
+    <p>{{query}}</p>
+  </header>
   <h4>Kris:</h4>
-  <p>{{response.text}}</p>
+  {{response | safe}}
 </article>

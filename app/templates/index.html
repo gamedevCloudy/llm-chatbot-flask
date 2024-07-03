@@ -17,7 +17,7 @@
     <main class="container">
       <h1>Chat with a Scholar</h1>
       <div id="chatarea">
-        <article><h4>Kris:</h4><p>{{response.text}}</p></article>
+        <article><h4>Kris:</h4><p>{{ response | safe}}</p></article>
       </div>
       <div id="textbox" style="position: fixed; bottom:0; width: 80%;">
         <form
