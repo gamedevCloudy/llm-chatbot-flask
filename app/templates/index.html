@@ -19,7 +19,9 @@
       <div id="chatarea">
         <article><h4>Kris:</h4><p>{{ response | safe}}</p></article>
       </div>
-      <div id="textbox" style="position: fixed; bottom:0; width: 80%;">
+      <br>
+      <br>
+      <div id="textbox" style="position: fixed; bottom:0; width: 80%; box-shadow: 28px ;">
         <form
         id="text"
         hx-post="/chat"
@@ -27,13 +29,28 @@
         hx-target="#chatarea"
         hx-swap="beforeend"
         role="group"
+        hx-on::after-request="this.reset(); scrollToBottom();"
       >
 
-            <input type="text" id='query' name="query" placeholder="enter your prompt"></input>
+            <input type="text" id='query' name="query" placeholder="Chat with Kris..."></input>
             <!-- <button type="submit">Login</button> -->
             <button type="submit"><img src="https://cdn-icons-png.flaticon.com/24/736/736161.png" alt="Send" ></button>
         </form>
     </div>
+
+    <script>
+      function scrollToBottom() {
+      
+        setTimeout(() => {
+            const chatarea = document.getElementById('chatarea');
+            const lastChild = chatarea.lastElementChild;
+            if (lastChild) {
+                lastChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        }, 10);
+    }
+      </script>
+
     </main>
   </body>
 </html>
