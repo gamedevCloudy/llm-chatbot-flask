@@ -1,9 +1,14 @@
 from flask import Blueprint, render_template, request
 
+from dotenv import load_dotenv
+
 import html
 
 import google.generativeai as genai
 import os
+
+
+load_dotenv()
 
 genai.configure(api_key=os.environ['GEMINI_API_KEY'])
 
